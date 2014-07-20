@@ -13,6 +13,11 @@
 		<script src="js/jquery.mobile-1.4.3.min.js"></script>
 		<script src="js/jquery-ui-1.10.4.custom.js"></script>
 		<script src="js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
     <script>
     	$( document ).on( "pagebeforeshow","#clientes", function() {
             loadClientTable();
@@ -28,31 +33,31 @@
     </head>
 
 <body>
-<div data-role="page" id="inicio" >
-    <div data-role="header">
+<div data-role="page" id="inicio" >    
+    <div data-role="header">        
         <h1 class="ui-corner-all">LinkSim</h1>
-        <a href="index.html" class="ui-btn-left ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all">Inicio</a>
-        <a href="javascript:location.reload();" class="ui-btn-right ui-btn ui-icon-refresh ui-btn-icon-notext ui-corner-all">Refresh</a>
+        <a href="index.html" class="ui-btn-left ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all">Inicio</a>        
+        <a href="javascript:location.reload();" class="ui-btn-right ui-btn ui-icon-refresh ui-btn-icon-notext ui-corner-all">Refresh</a>        
         <div data-role="navbar" data-theme="a">
             <ul>
-                <li>
+                <li>                	
                     <div data-role="collapsible" data-content-theme="false" data-theme="a">
                         <h3>Ventas</h3>
                         <a href="clientes.html" class="ui-btn ui-icon-user ui-btn-icon-left" data-prefetch="true">Clientes</a>
                         <a href="pedidos.html" data-prefetch="true" class="ui-btn ui-icon-shop ui-btn-icon-left">Pedidos</a>
-                    </div>
+                    </div>                    	
                 </li>
-                <li>
+                <li>                	
                     <div data-role="collapsible" data-content-theme="false" data-theme="a">
                         <h3>Compras</h3>
                         <a href="proveedores.html" class="ui-btn  ui-icon-user ui-btn-icon-left">Proveedores</a>
-                    </div>
+                    </div>                    	
                 </li>
-                <li>
+                <li>                	
                     <div data-role="collapsible" data-content-theme="false" data-theme="a">
                         <h3>Inventario</h3>
                         <a href="productos.html" class="ui-btn  ui-shadow ui-icon-shop ui-btn-icon-left" data-prefetch="true">Productos</a>
-                    </div>
+                    </div>                    	
                 </li>
             </ul>
         </div><!-- /navbar -->
@@ -60,20 +65,20 @@
 
    <div role="main" class="ui-content">
        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-            <a href="javascript:location.reload();" class="ui-btn ui-btn-mini ui-btn-inline ui-icon-delete ui-btn-icon-right">Salir</a>
+            <a href="javascript:navigator.app.exitApp();" class="ui-btn ui-btn-mini ui-btn-inline ui-icon-delete ui-btn-icon-right">Salir</a>
        </div>
-       <div class="ui-corner-all">
+       <div class="ui-corner-all">           
           <div class="ui-bar ui-bar-a">
-            <h3> Inicio
+            <h3> Inicio               
             </h3>
-          </div>
+          </div>           
           <div class="ui-body ui-body-a">
             <img src="images/empresas.jpg" width="100%" height="100%">
           </div>
         </div>
-
-
-
+                
+        
+    
     <div data-role="footer">
         <h4>Copyrigth &copy; LinkSim 2014</h4>
     </div><!-- /footer -->

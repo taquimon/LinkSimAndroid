@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2" />
-    <title>LinkSim</title>
-    <meta charset="utf-8">
-      <link rel="stylesheet" href="js/jquery.mobile.theme-1.4.3.css" />
+	<head>
+		<title>Clientes</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="js/jquery.mobile.theme-1.4.3.css" />
 		<link rel="stylesheet" href="js/jquery.mobile.structure-1.4.3.css" />
 		<link rel="stylesheet" href="js/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="css/demo_table_jui.css" />
@@ -13,24 +13,53 @@
 		<script src="js/jquery.mobile-1.4.3.min.js"></script>
 		<script src="js/jquery-ui-1.10.4.custom.js"></script>
 		<script src="js/jquery.dataTables.js"></script>
-    <script>
-    	$( document ).on( "pagebeforeshow","#clientes", function() {
-            loadClientTable();
+<script language="Javascript">
+	/*$(function() {
+	clientTable = $("#client_table").dataTable({
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers",
+            "oLanguage": {
+						"sUrl": "js/es_ES.txt"
+					},
+			"ajax":"controllers/cliente.php",
+			"sAjaxDataProp":"User",
+			"columns":[
+			            { "mData": "codigo" },
+                        { "mData": "nombre" },
+                        { "mData": "direccion" }
+			]
         });
-        $( document ).on( "pagebeforeshow","#pedidos", function() {
-			getEmpresas();
+     });	*/
+	$( document ).on( "pageinit","#clientes", function() {
+           loadClientTable();
+            //$("#pedidos").refresh();
+            /*$(".mySelect").bind( "change", function(event, ui) {
+                getCategorias();*/
+            //})
         });
+	function loadClientTable(){
+		clientTable = $("#client_table").dataTable({
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers",
+            "oLanguage": {
+                        "sUrl": "js/es_ES.txt"
+                    },
+            "ajax":"controllers/cliente.php",
+            "sAjaxDataProp":"User",
+            "columns":[
+                        { "mData": "codigo" },
+                        { "mData": "nombre" },
+                        { "mData": "direccion" }
+            ]
+        });
+	}
+</script>
+	</head>
+	<body>
 
-        $( document ).on( "pagebeforeshow","#productos", function() {
-            loadProductTable();
-        });
-    </script>
-    </head>
-
-<body>
-<div data-role="page" id="inicio" >
-    <div data-role="header">
-        <h1 class="ui-corner-all">LinkSim</h1>
+		<div data-role="page" id="clientes">
+			 <div data-role="header">
+        <h1 class="ui-corner-all">Clientes</h1>
         <a href="index.html" class="ui-btn-left ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all">Inicio</a>
         <a href="javascript:location.reload();" class="ui-btn-right ui-btn ui-icon-refresh ui-btn-icon-notext ui-corner-all">Refresh</a>
         <div data-role="navbar" data-theme="a">
@@ -58,25 +87,24 @@
         </div><!-- /navbar -->
         </div><!-- /header -->
 
-   <div role="main" class="ui-content">
-       <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-            <a href="javascript:location.reload();" class="ui-btn ui-btn-mini ui-btn-inline ui-icon-delete ui-btn-icon-right">Salir</a>
-       </div>
-       <div class="ui-corner-all">
-          <div class="ui-bar ui-bar-a">
-            <h3> Inicio
-            </h3>
-          </div>
-          <div class="ui-body ui-body-a">
-            <img src="images/empresas.jpg" width="100%" height="100%">
-          </div>
-        </div>
+			<div role="main" class="ui-content">
+<table id="client_table" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th style="width:10%">Codigo</th>
+            <th style="width:10%">Nombre</th>
+            <th style="width:20%">Direccion</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+			</div><!-- /content -->
 
+			<div data-role="footer">
+				<h4>Copyrigth &copy; LinkSim 2014</h4>
+			</div><!-- /footer -->
+		</div><!-- /page -->
 
-
-    <div data-role="footer">
-        <h4>Copyrigth &copy; LinkSim 2014</h4>
-    </div><!-- /footer -->
-</div>
-</body>
+	</body>
 </html>
